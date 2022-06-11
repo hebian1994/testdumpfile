@@ -1,0 +1,8 @@
+server:
+  port: 8000
+#spring:
+#  mvc:
+#    static-path-pattern: /static/** #static为存放css,js的文件夹
+
+oom:
+  thread-num: 14556

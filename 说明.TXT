@@ -1,0 +1,30 @@
+https://blog.csdn.net/qq_33589510/article/details/118306769
+
+1、栈溢出  java.lang.StackOverflowError
+
+2、堆溢出   Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+
+3、方法区溢出 元空间溢出 Caused by: java.lang.OutOfMemoryError: Metaspace 1.8和之后
+   永久代溢出          PermGen space 1.8之前
+
+4、直接内存溢出  Exception in thread "main" java.lang.OutOfMemoryError: Direct buffer memory
+
+5、unable to create new native Thread  创建了大量线程导致？
+java.lang.OutOfMemoryError: Unable to create new native thread 错误表达的意思是: 程序创建的线程数量已达到上限值
+如果是建立过多线程导致的内存溢出，在不能减少线程数量或者更换64位虚拟机的情况下，
+就只能通过减少最大堆和减少栈容量换取更多的线程。这种通过“减少内存”手段解决内存溢出的方式，
+如果没有这方面处理经验，一般比较难以想到。也是由于这种问题较为隐蔽，
+从 JDK 7起，以上提示信息中“unable to create native thread”后面，虚拟机会特别注明原因可能是“possibly
+————————————————
+版权声明：本文为CSDN博主「JavaEdge.」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_33589510/article/details/118306769
+
+6、Request array size exceeds VM limit 超大数组/不合理的数组分配导致
+
+7、Out of swap space 操作系统导致，可能是swap分区大小分配不足，进程消耗了所有的内存
+
+8、stack_trace_with_native_method 本地方法在运行时出现了内存分配失败
+
+发生OOM之后会发生什么？
+ 大概来说是该线程的占有资源全部释放掉，其他无关线程正常运行。
+ https://blog.csdn.net/qq_33589510/article/details/118306769
